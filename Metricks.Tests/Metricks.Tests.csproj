@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculations\ProcessMassIntensityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -99,6 +100,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MetricCalculations\MetricCalculations.csproj">
+      <Project>{f1a9fb68-3d96-429c-858a-693e2645b10a}</Project>
+      <Name>MetricCalculations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Metricks\Metricks.csproj">
       <Project>{9853AB99-6728-4C90-AB40-C4F51414EE0B}</Project>
       <Name>Metricks</Name>

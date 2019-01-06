@@ -3,3 +3,6 @@ packages/
 Metricks/obj/
 Metricks/bin/
 Metricks.Tests/obj/
+MetricCalculations/bin/
+MetricCalculations/obj/
+Metricks.Tests/bin/

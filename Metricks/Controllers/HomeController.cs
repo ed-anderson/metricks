@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MetricCalculations;
+using Metricks.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +27,14 @@ namespace Metricks.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Calculate(MetricRequestViewModel model)
+        {
+            var calculations = new Calculations();
+            var result = calculations.ProcessMassIntensity(new double[] { model.ReagentMass }, model.ProductMass);
+            ViewBag.Result = $"{result}";
+            return View("Index");
         }
     }
 }
