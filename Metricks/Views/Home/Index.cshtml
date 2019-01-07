@@ -10,54 +10,56 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Inputs</h2>
-        <p>
-            Input the names and masses of your reagents and product. Please make sure that you are using the same mass units for all of your reagents and your product.
-        </p>
+    <h2>Inputs</h2>
+    <p>
+        Input the names and masses of your reagents and product. Please make sure that you are using the same mass units for all of your reagents and your product.
+    </p>
+        
+    @using (Html.BeginForm("Calculate", "Home", FormMethod.Post, new { @class = "form-inline", role = "form" }))
+    {
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        <div id="reagentDivs">
+            @Html.EditorFor(m => m.Reagents)
+        </div>
 
-        @using (Html.BeginForm("Calculate", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            @Html.ValidationSummary("", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(m => m.ReagentName, new { @class = "col-md-4 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.ReagentName, new { @class = "form-control" })
-                </div>
-                @Html.LabelFor(m => m.ReagentMass, new { @class = "col-md-4 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.ReagentMass, new { @class = "form-control" })
-                </div>
-                @Html.LabelFor(m => m.ProductName, new { @class = "col-md-4 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
-                </div>
-                @Html.LabelFor(m => m.ProductMass, new { @class = "col-md-4 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.ProductMass, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-4 col-md-10">
-                    <input type="submit" class="btn btn-default" value="Calculate" />
-                </div>
-            </div>
-        }
-
-        @{
-            if (!string.IsNullOrEmpty(ViewBag.Result))
-            {
-                <h2>Results</h2>
-                <h4>Process Mass Intensity (PMI)</h4>
-                
-                @ViewBag.Result
-       
-            }
-        }
-
-
+        <a onclick="myCreateFunction()">Add reagent</a>
+        <div>
+            @Html.LabelFor(m => m.ProductName, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+            @Html.LabelFor(m => m.ProductMass, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ProductMass, new { @class = "form-control" })
+        </div>
+        <div>
+            <input type="submit" class="btn btn-default" value="Calculate" />
+        </div>
     </div>
+
+    }
+
+    @{
+        if (!string.IsNullOrEmpty(ViewBag.Result))
+        {
+            <h2>Results</h2>
+            <h4>Process Mass Intensity (PMI)</h4>
+
+            @ViewBag.Result
+
+        }
+    }
+
+
 </div>
 
+
+<script>
+    var index = @(Model.Reagents.Count - 1);
+
+    function myCreateFunction() {
+        index++;
+        var newReagent = '<div><label class="control-label" for="Reagents_' + index + '__Name">Reagent name</label><input class="form-control" id="Reagents_' + index + '__Name" name="Reagents[' + index + '].Name" type="text" value=""><label class="control-label" for="Reagents_' + index + '__Mass">Reagent mass</label><input class="form-control" data-val="true" data-val-number="The field Reagent mass must be a number." data-val-required="The Reagent mass field is required." id="Reagents_' + index + '__Mass" name="Reagents[' + index + '].Mass" type="text" value="0"></div>'
+        $("#reagentDivs").append(newReagent);
+    }
+</script>
    
 

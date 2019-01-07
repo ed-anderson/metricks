@@ -8,16 +8,19 @@ namespace Metricks.Models
 {
     public class MetricRequestViewModel
     {
-        [Display(Name = "Reagent name")]
-        public string ReagentName { get; set; }
-
-        [Display(Name = "Reagent mass")]
-        public double ReagentMass { get; set; }
+        [Display(Name = "Reagents")]
+        public List<Reagent> Reagents { get; set; }
 
         [Display(Name = "Product name")]
         public string ProductName { get; set; }
 
         [Display(Name = "Product mass")]
         public double ProductMass { get; set; }
+
+        public MetricRequestViewModel()
+        {
+            Reagents = new List<Reagent>();
+            Reagents.Add(new Reagent());
+        }
     }
 }

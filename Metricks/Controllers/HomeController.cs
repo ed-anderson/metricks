@@ -12,7 +12,9 @@ namespace Metricks.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var initialData = new MetricRequestViewModel();
+
+            return View(initialData);
         }
 
         public ActionResult About()
@@ -32,9 +34,21 @@ namespace Metricks.Controllers
         public ActionResult Calculate(MetricRequestViewModel model)
         {
             var calculations = new Calculations();
-            var result = calculations.ProcessMassIntensity(new double[] { model.ReagentMass }, model.ProductMass);
+            var result = calculations.ProcessMassIntensity(model.Reagents.Select(x => x.Mass).ToArray(), model.ProductMass);
             ViewBag.Result = $"{result}";
-            return View("Index");
+            return View("Index", model);
+        }
+
+        public ActionResult AddReagent(MetricRequestViewModel model)
+        {
+            model.Reagents.Add(new Reagent());
+            return View("Index", model);
+        }
+
+        public ActionResult DeleteReagent(MetricRequestViewModel model)
+        {
+            model.Reagents.RemoveAt(model.Reagents.Count);
+            return View("Index", model);
         }
     }
 }
