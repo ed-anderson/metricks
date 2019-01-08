@@ -34,8 +34,19 @@ namespace Metricks.Controllers
         public ActionResult Calculate(MetricRequestViewModel model)
         {
             var calculations = new Calculations();
-            var result = calculations.ProcessMassIntensity(model.Reagents.Select(x => x.Mass).ToArray(), model.ProductMass);
-            ViewBag.Result = $"{result}";
+
+            var resultProcessMassIntensity = calculations.ProcessMassIntensity(model.Reagents.Select(x => x.Mass).ToArray(), model.ProductMass);
+            ViewBag.ResultProcessMassIntensity = $"{resultProcessMassIntensity}";
+
+            var resultEFactor = calculations.EFactor(model.Reagents.Select(x => x.Mass).ToArray(), model.ProductMass);
+            ViewBag.ResultEFactor = $"{resultEFactor}";
+
+            var resultReactionMassEfficiency = calculations.ReactionMassEfficiency(model.Reagents.Where(x => x.IsReactant == true).Select(y => y.Mass).ToArray(), model.ProductMass);
+            ViewBag.ResultReactionMassEfficiency = $"{resultReactionMassEfficiency} %";
+
+            var resultEffectiveMassYield = calculations.EffectiveMassYield(model.Reagents.Where(x => x.IsBenign == false).Select(y => y.Mass).ToArray(), model.ProductMass);
+            ViewBag.ResultEffectiveMassYield = $"{resultEffectiveMassYield} %";
+
             return View("Index", model);
         }
 

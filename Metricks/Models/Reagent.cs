@@ -13,5 +13,11 @@ namespace Metricks.Models
 
         [Display(Name = "Reagent mass")]
         public double Mass { get; set; }
+
+        [Display(Name = "Reactant")]
+        public bool IsReactant { get; set; }
+
+        [Display(Name = "Benign")]
+        public bool IsBenign { get; set; }
     }
 }
