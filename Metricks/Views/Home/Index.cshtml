@@ -18,23 +18,24 @@
     @using (Html.BeginForm("Calculate", "Home", FormMethod.Post, new { @class = "form-inline", role = "form" }))
     {
         @Html.ValidationSummary("", new { @class = "text-danger" })
-        <div class="form-group">
-            <div id="reagentDivs">
-                @Html.EditorFor(m => m.Reagents)
-            </div>
-
-            <a onclick="myCreateFunction()">Add reagent</a>
-
-            <div>
-                @Html.LabelFor(m => m.ProductName, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
-                @Html.LabelFor(m => m.ProductMass, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.ProductMass, new { @class = "form-control" })
-            </div>
-            <div>
-                <input type="submit" class="btn btn-default" value="Calculate" />
-            </div>
+    <div class="form-group">
+        <div id="reagentDivs">
+            @Html.EditorFor(m => m.Reagents)
         </div>
+
+        <a onclick="myCreateFunction()">Add reagent</a>
+
+        <div>
+            @Html.LabelFor(m => m.ProductName, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+            @Html.LabelFor(m => m.ProductMass, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ProductMass, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <input type="submit" class="btn btn-default" value="Calculate" />
+        </div>
+    </div>
 
     }
 
@@ -48,7 +49,7 @@
                 @ViewBag.ResultProcessMassIntensity
             </div>
             <div>
-                <h4>E-Factor</h4>
+                <h4>E Factor</h4>
 
                 @ViewBag.ResultEFactor
             </div>
@@ -74,7 +75,7 @@
 
     function myCreateFunction() {
         index++;
-        var newReagent = '<div><label class="control-label" for="Reagents_' + index + '__Name">Reagent name</label><input class="form-control" id="Reagents_' + index + '__Name" name="Reagents[' + index + '].Name" type="text" value=""><label class="control-label" for="Reagents_' + index + '__Mass">Reagent mass</label><input class="form-control" data-val="true" data-val-number="The field Reagent mass must be a number." data-val-required="The Reagent mass field is required." id="Reagents_' + index + '__Mass" name="Reagents[' + index + '].Mass" type="text" value="0"><label for="Reagents_' + index + '__IsReactant">Reactant</label><input data-val="true" data-val-required="The Reactant field is required." id="Reagents_' + index + '__IsReactant" name="Reagents[' + index + '].IsReactant" type="checkbox" value="true" /><input name="Reagents[' + index + '].IsReactant" type="hidden" value="false" /><label for="Reagents_' + index + '__IsBenign">Benign</label><input data-val="true" data-val-required="The Benign field is required." id="Reagents_' + index + '__IsBenign" name="Reagents[' + index + '].IsBenign" type="checkbox" value="true" /><input name="Reagents[' + index + '].IsBenign" type="hidden" value="false" /></div>'
+        var newReagent = '<div><label class="control-label" for="Reagents_' + index + '__Name">Reagent name</label>&nbsp;<input class="form-control" id="Reagents_' + index + '__Name" name="Reagents[' + index + '].Name" type="text" value="">&nbsp;<label class="control-label" for="Reagents_' + index + '__Mass">Reagent mass</label>&nbsp;<input class="form-control" data-val="true" data-val-number="The field Reagent mass must be a number." data-val-required="The Reagent mass field is required." id="Reagents_' + index + '__Mass" name="Reagents[' + index + '].Mass" type="text" value="0">&nbsp;<label for="Reagents_' + index + '__IsReactant">Reactant</label>&nbsp;<input data-val="true" data-val-required="The Reactant field is required." id="Reagents_' + index + '__IsReactant" name="Reagents[' + index + '].IsReactant" type="checkbox" value="true" />&nbsp;<input name="Reagents[' + index + '].IsReactant" type="hidden" value="false" /><label for="Reagents_' + index + '__IsBenign">Benign</label>&nbsp;<input data-val="true" data-val-required="The Benign field is required." id="Reagents_' + index + '__IsBenign" name="Reagents[' + index + '].IsBenign" type="checkbox" value="true" />&nbsp;<input name="Reagents[' + index + '].IsBenign" type="hidden" value="false" /></div>'
         $("#reagentDivs").append(newReagent);
     }
 </script>

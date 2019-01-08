@@ -19,7 +19,7 @@ namespace Metricks.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Here you can find references to the papers describing each metric used on this website.";
 
             return View();
         }
