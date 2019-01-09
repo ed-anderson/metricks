@@ -1,0 +1,15 @@
+﻿@model Metricks.Models.Reagent
+
+<div>
+    @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.Mass, new { @class = "control-label" })
+    @Html.TextBoxFor(m => m.Mass, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.IsReactant)
+    @Html.CheckBoxFor(m => m.IsReactant)
+
+    @Html.LabelFor(m => m.IsBenign)
+    @Html.CheckBoxFor(m => m.IsBenign)
+</div>

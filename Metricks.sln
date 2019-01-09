@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metricks", "Metricks\Metric
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metricks.Tests", "Metricks.Tests\Metricks.Tests.csproj", "{68DA2B8F-6708-4790-AAE1-7640DBB00987}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricCalculations", "MetricCalculations\MetricCalculations.csproj", "{F1A9FB68-3D96-429C-858A-693E2645B10A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68DA2B8F-6708-4790-AAE1-7640DBB00987}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68DA2B8F-6708-4790-AAE1-7640DBB00987}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68DA2B8F-6708-4790-AAE1-7640DBB00987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A9FB68-3D96-429C-858A-693E2645B10A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A9FB68-3D96-429C-858A-693E2645B10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A9FB68-3D96-429C-858A-693E2645B10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A9FB68-3D96-429C-858A-693E2645B10A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
