@@ -39,7 +39,7 @@ namespace Metricks.Tests.Calculations
         [TestMethod]
         public void ValidInputs_ReturnsCorrectValue()
         {
-            var result = calculations.ProcessMassIntensity(new double[] { 1.11, 2.26, 3.33 }, 4.44);
+            var result = calculations.ProcessMassIntensity(new double[] { 1.11, 2.22, 3.33 }, 4.44);
 
             Assert.AreEqual(1.5, result);
         }

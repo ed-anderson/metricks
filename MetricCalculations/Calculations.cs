@@ -45,6 +45,11 @@ namespace MetricCalculations
                 throw new ArgumentException("regentMasses is null");
             }
 
+            if (reagentMasses.Sum() == 0)
+            {
+                throw new ArgumentException("reagentMasses.Sum() is 0");
+            }
+
             if (productMass == 0)
             {
                 throw new ArgumentException("productMasses is 0");
@@ -58,6 +63,11 @@ namespace MetricCalculations
             if (reagentMasses == null)
             {
                 throw new ArgumentException("regentMasses is null");
+            }
+
+            if (reagentMasses.Sum() == 0)
+            {
+                throw new ArgumentException("reagentMasses.Sum() is 0");
             }
 
             if (productMass == 0)
