@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Metricks.Tests.Calculations
 {
     [TestClass]
-    public class ProcessMassIntensityTests
+    public class EFactorTests
     {
         private MetricCalculations.Calculations calculations = new MetricCalculations.Calculations();
 
@@ -16,7 +16,7 @@ namespace Metricks.Tests.Calculations
         public void NullReagentMasses_ThrowsInvalidArgumentException()
         {
             Assert.ThrowsException<ArgumentException>(() => {
-                calculations.ProcessMassIntensity(null, 5);
+                calculations.EFactor(null, 5);
             });
         }
 
@@ -24,24 +24,24 @@ namespace Metricks.Tests.Calculations
         public void ZeroProductMass_ThrowsInvalidArgumentException()
         {
             Assert.ThrowsException<ArgumentException>(() => {
-                calculations.ProcessMassIntensity(new double[] { 1, 2, 3 }, 0);
+                calculations.EFactor(new double[] { 1, 2, 3 }, 0);
             });
         }
 
         [TestMethod]
         public void EmptyArray_ThrowsInvalidArgumentException()
         {
-            var result = calculations.ProcessMassIntensity(new double[0], 5);
+            var result = calculations.EFactor(new double[0], 5);
 
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(-1, result);
         }
 
         [TestMethod]
         public void ValidInputs_ReturnsCorrectValue()
         {
-            var result = calculations.ProcessMassIntensity(new double[] { 1.11, 2.26, 3.33 }, 4.44);
+            var result = calculations.EFactor(new double[] { 1.11, 2.22, 3.33 }, 4.44);
 
-            Assert.AreEqual(1.5, result);
+            Assert.AreEqual(0.5, result);
         }
     }
 }
