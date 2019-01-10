@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MetricCalculations
 {
-    public class Calculations
+    public class Calculations : ICalculations
     {
         public double ProcessMassIntensity(double[] reagentMasses, double productMass)
         {
